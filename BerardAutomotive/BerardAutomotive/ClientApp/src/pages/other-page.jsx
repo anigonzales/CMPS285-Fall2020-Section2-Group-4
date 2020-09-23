@@ -36,3 +36,5 @@ export const OtherPage = () => {
         </div>
     )
 }
+
+export default OtherPage

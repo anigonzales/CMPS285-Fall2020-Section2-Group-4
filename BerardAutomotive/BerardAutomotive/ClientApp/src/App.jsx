@@ -1,9 +1,9 @@
-import React, { useEffect, useState, Button } from 'react';
+import React, { useEffect} from 'react';
 import './App.css';
 import Axios from 'axios';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import {MainPage } from './pages/main-page';
-import { OtherPage } from './pages/other-page';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import MainPage from './pages/main-page';
+import OtherPage from './pages/other-page';
 
 const App = () => {
 

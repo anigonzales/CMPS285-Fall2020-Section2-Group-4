@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
+import React, {Component} from 'react'
+// import 'react-tabs/style/react-tabs.css';
+// import './Header.css'
+// import './Footer.css'
 
-export const MainPage = () => {
-    const [state, setState] = useState(1);
 
-    return ( 
-        <>
-        <div>
-            Hello
-        </div>
-        <div>
-            Dom
-        </div>
-        <button onClick={() => setState(state + 1)}>Press me</button>
-        {state}
-        </>
-    )
+class MainPage extends Component {
+    render() {
+        return (
+            <>
+                <div className="App">
+                    <Header />
+                    {/* <tabsNav /> */}
+                    <Footer />
+                </div>
+        
+            </>
+        )
+    }
 }
+
+export default MainPage;
