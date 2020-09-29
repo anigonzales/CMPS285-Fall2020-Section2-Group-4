@@ -14,19 +14,19 @@ import OtherPage from './pages/other-page';
 
 function App() {
   return (
-    
+
     <div className="App">
       <BrowserRouter >
-      <Header />
-      <TabsNav />
-      <Footer />
-      <Switch>
-        <Route exact path = {"/services"} component = {ServicesPage}/>
-        <Route exact path = {"/"} component = {MainPage}/>
-        <Route exact path = {"/other"} component = {OtherPage} />
-      </Switch>
+        <Header />
+        <TabsNav />
+        <Footer />
+        <Switch>
+          <Route exact path={"/services"} component={ServicesPage} />
+          <Route exact path={"/"} component={MainPage} />
+          <Route exact path={"/other"} component={OtherPage} />
+        </Switch>
       </BrowserRouter>
-      
+
     </div>
   );
 }

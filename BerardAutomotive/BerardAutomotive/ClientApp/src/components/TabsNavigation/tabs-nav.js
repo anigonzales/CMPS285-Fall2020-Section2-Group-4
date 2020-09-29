@@ -11,9 +11,9 @@ function TabsNav() {
         <div className="tabsNav">
             <Tabs>
                 <TabList>
-                    <Tab as = {Link} to = "/services">Pricing </Tab>
-                    <Tab as = {Link} to = "/home">About Us</Tab>
-                    <Tab as = {Link} to = "/other">Contact Us</Tab>
+                    <Link to = "/services"> <Tab > Services </Tab> </Link>
+                    <Link to = "/"><Tab>About Us</Tab> </Link>
+                    <Link to = "/other"><Tab >Contact Us</Tab> </Link>
                 </TabList>
 
                 <TabPanel>
