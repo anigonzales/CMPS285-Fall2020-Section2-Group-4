@@ -4,7 +4,7 @@ import {Calendar, momentLocalizer} from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 
-export const OtherPage = () => {
+const OtherPage = () => {
     const localizer = momentLocalizer(moment)
     const events =   [
         {
@@ -37,4 +37,4 @@ export const OtherPage = () => {
     )
 }
 
-export default OtherPage
+export default OtherPage;
