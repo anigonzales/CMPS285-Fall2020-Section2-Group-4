@@ -1,36 +1,107 @@
-import React from 'react'
-import {Calendar, momentLocalizer} from 'react-big-calendar'
+import React, { useState } from 'react'
+// import { Link } from 'react-router-dom'
+import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
+// import { OfficeHours } from '../test/office-hours'
+import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
 
 const OtherPage = () => {
+    const [open, setOpen] = useState(false);
+    const [setSelectedEvent] = useState();
     const localizer = momentLocalizer(moment)
-    const events =   [
+    const events = [
         {
-        id: 0,
-        title: 'All Day Event very long title',
-        allDay: true,
-        start: new Date(2020, 9, 0),
-        end: new Date(2020, 9, 1),
-      },
-      {
-        id: 1,
-        title: 'Long Event',
-        start: new Date(2020, 9, 7),
-        end: new Date(2020, 9, 10),
-      },
+            id: 0,
+            title: 'Select',
+            allDay: true,
+            start: new Date(2020, 9, 1),
+            end: new Date(2020, 9, 1),
+        },
+        {
+            id: 1,
+            title: 'Select',
+            allDay: true,
+            start: new Date(2020, 9, 2),
+            end: new Date(2020, 9, 2),
+        },
+        {
+            id: 2,
+            title: 'Select',
+            allDay: true,
+            start: new Date(2020, 9, 3),
+            end: new Date(2020, 9, 3),
+        },
+
+
+    ]
+
+    const eventHandler = (event) => {
+        setSelectedEvent(event);
+        setOpen(true);
+    }
+    const options = [
+        { key: 1, text: '8:00am', value: 1 },
+        { key: 2, text: '9:00am', value: 2 },
+        { key: 3, text: '10:00am', value: 3 },
+        { key: 4, text: '11:00am', value: 4 },
+        { key: 5, text: '12:00pm', value: 5 },
+        { key: 6, text: '1:00pm', value: 6 },
+        { key: 7, text: '2:00pm', value: 7 },
+        { key: 8, text: '3:00pm', value: 8 },
+        { key: 9, text: '4:00pm', value: 9 },
+        { key: 10, text: '5:00pm', value: 10 },
+
     ]
 
     return (
-        <div>
-            <Calendar
-                events={events}
-                localizer={localizer}
-                startAccessor="start"
-                endAccessor="end"
-                style={{ height: 500 }}
-            />
-        </div>
+        <>
+            <div className="other">
+            <Grid columns={3}>
+            <Grid.Row>
+                <Grid.Column className='officeOne'>
+                    <h2><Icon name='clock' />Office Hours:</h2>
+                    <h3>8:00am - 5:30pm</h3>
+                </Grid.Column>
+                <Grid.Column className='officeTwo'>
+                    <h2><Icon name='location arrow' />Address:</h2>
+                    <h3>723 Girod St, Mandeville, LA 70448</h3>
+                </Grid.Column>
+                <Grid.Column className='officeThree'>
+                    <h2><Icon name='phone' />Phone Number:</h2>
+                    <h3>(985) 624-8055</h3>
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+                <Calendar
+                    events={events}
+                    localizer={localizer}
+                    startAccessor="start"
+                    endAccessor="end"
+                    onSelectEvent={eventHandler}
+                    style={{ height: 400, width: 700 }}
+                />
+            </div>
+            <Modal open={open} onClose={() => setOpen(false)} >
+                <Modal.Header>
+                    Message
+                </Modal.Header>
+                <Modal.Content>
+                    <h1>Appointment set to: </h1>
+                    <Dropdown placeholder="Select Time" clearable options={options} selection />
+                    <div>
+                        <Input placeholder="Your Full Name" />
+                        <Input placeholder="Service Needed" />
+                        <Input placeholder="Your Email" />
+                        <Input placeholder="Your Phone Number" />
+                    </div>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button color='green'>Send</Button>
+                </Modal.Actions>
+            </Modal>
+        </>
     )
 }
 

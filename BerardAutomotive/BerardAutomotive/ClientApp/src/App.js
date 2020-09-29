@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ServicesPage from './pages/services-page';
 import MainPage from './pages/main-page';
 import OtherPage from './pages/other-page';
+import 'semantic-ui-css/semantic.min.css';
 
 
 function App() {

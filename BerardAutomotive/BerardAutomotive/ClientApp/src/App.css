@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+.officeOne,.officeTwo,.officeThree{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid white;
+  height: 120px;
+  color: white;
+}
+.officeOne{
+background-color: cornflowerblue;
+}
+.officeTwo{
+background-color: darkblue;
+}
+.officeThree{
+background-color: blue;
+}
+.other{
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+}
