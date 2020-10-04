@@ -16,6 +16,7 @@ namespace BerardAutomotive.Migrations
                     Name = table.Column<string>(nullable: true),
                     Phone = table.Column<long>(nullable: false),
                     Time = table.Column<DateTimeOffset>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
                     Note = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -103,7 +104,7 @@ namespace BerardAutomotive.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Eta = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

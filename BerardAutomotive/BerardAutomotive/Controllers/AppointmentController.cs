@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using BerardAutomotive.Data;
 using BerardAutomotive.Features.Appointment;
@@ -31,6 +32,7 @@ namespace BerardAutomotive.Controllers
                 Phone = x.Phone,
                 Time = x.Time,
                 Note = x.Note,
+                Email = x.Email,
             };
         }
         [HttpGet]
@@ -48,11 +50,22 @@ namespace BerardAutomotive.Controllers
                 Name = targetValue.Name,
                 Phone = targetValue.Phone,
                 Time = targetValue.Time,
+                Email = targetValue.Email,
                 Note = targetValue.Note,
             });
             targetValue.Id = data.Entity.Id;
             dataContext.SaveChanges();
             return Created(string.Empty, targetValue);
+        }
+
+        [HttpDelete]
+
+        public ActionResult<AppointmentDto> Name(int id)
+        {
+            var data = dataContext.Set<Appointment>().FirstOrDefault(x => x.Id == id);
+            dataContext.Set<Appointment>().Remove(data);
+            dataContext.SaveChanges();
+            return Ok();
         }
     }
 }
