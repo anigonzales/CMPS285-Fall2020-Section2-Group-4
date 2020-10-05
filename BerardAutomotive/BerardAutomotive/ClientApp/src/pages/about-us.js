@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container, Divider, Header, Image, Embed } from 'semantic-ui-react'
+import pic7 from '../pictures/pic7.jpg'
+import pic9 from '../pictures/pic9.jpg'
+import pic10 from '../pictures/pic10.jpg'
 
 export const AboutUsPage = () => {
 
-    const src = '/images/wireframe/image.png'
 
     return (
         <>
@@ -11,50 +13,44 @@ export const AboutUsPage = () => {
                 <Container className='about'>
                     <Divider horizontal>
                         <Header as='h4'>
-                            History
+                            Brief History
       </Header>
                     </Divider>
                     <p textAlign='right'>
-                        Owner and operator Tye S. Berard has been working in the
-                        automotive field since 1984. Started acquiring ASE certifications
-                        in 1987 while working at Firestone, in the fields of Engine Repair,
+                        Owner and operator, Mike Levytskyi, has been working in the
+                        automotive field since 2010. Started acquiring ASE certifications
+                        in 2005 while working at Firestone, in the fields of Engine Repair,
                         Automatic Transmission/Transaxle, Manual Drivetrain and Axles,
                         Suspension and Steering, Brakes, Electrical/ Electronic Systems,
                         Heating and A/C, and Engine Performance. Taking and passing all 8
-                        tests allows Tye to be Master Certified in Automotive Repair. A
+                        tests allows Mike to be Master Certified in Automotive Repair. A
                         large number of years Tye worked at Efficient Transmission in
-                        Mandeville, LA. In 1997, Tye decided to venture out on his own and
+                        Mandeville, LA. In 2005, Mike decided to venture out on his own and
                         opened Berard’s Automotive in the Old Mandeville section of town.
-                        In business for over 18 years, this shop has become quite a reliable
+                        In business for over 5 years, this shop has become quite a reliable
                         fixture in Old Mandeville area. Family oriented, reliable service,
                         fair pricing, quality work, are just a few things that the people
-                        of St. Tammany have come to know about Berard’s Automotive.
+                        of St. Tammany have come to know about Mike’s Automotive.
                     </p>
-                    <p>
-                        Tye and Melissa Berard have been together since 1991 and married since
-                        1995. Working together harmoniously since 1997 when the shop opened. They
-                        have 4 children of which participated in sports i.e., CRD football CRD
-                        basketball, CRD Cheerleading, Fontainebleau High School Football, Football
-                        Trainer. Tye was assistant coach for CRD Vikings for many years and gave
-                        many hours of his time to help the kids in our community. Melissa ran CRD
-                        cheerleading for 2 years, volunteering as well. These were fun times! We
-                        love being a part of the St. Tammany Parish community and will continue to
-                        support the area and its people.
-      </p>
-                    <Divider />
+
+                    <Divider horizontal>
+                        <Header as='h4'>
+                            Our Automotive Family
+      </Header>
+                    </Divider>
                 </Container>
             </div>
+
             <div className='aboutTwo'>
-                <Embed
-                    className='video'
-                    id='ZpvfCpvzE78'
-                    source='youtube'
-                />
-                <Image src={src} size='tiny' verticalAlign='top' /> <span>Top Aligned</span>
+
+                <Image src={pic9} size='medium' verticalAlign='top' />
+                <span>Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers! </span>
                 <Divider />
-                <Image src={src} size='tiny' verticalAlign='top' /> <span>Top Aligned</span>
+                <Image src={pic7} size='medium' verticalAlign='top' />
+                <span>Mark MacTurk -  Mark is a Service Technician. He has been in the automotive business for over 15 years. Mark is an ASE Certified Master Technician in all areas of automotive repair, specializing in Light Diesel Repair, Alternative Fuels and Smog Inspection.</span>
                 <Divider />
-                <Image src={src} size='tiny' verticalAlign='top' /> <span>Top Aligned</span>
+                <Image src={pic10} size='medium' verticalAlign='top' />
+                <span>Donnie Tyson - Don is an ASE Certified Master Technician in all areas of automotive repair, specializing in everything to do with passenger cars and light truck diagnostics and repair. He is best known as one of the top technicians in the area by once winning the AC Delco “Top Shop Shoot Out” Diagnostics competition for the western 13 states.</span>
                 <Divider />
 
 

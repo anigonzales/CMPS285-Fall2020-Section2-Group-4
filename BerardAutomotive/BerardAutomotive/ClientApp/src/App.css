@@ -1,5 +1,5 @@
 .other{
-  min-height: 100vh;
+  margin: 30px;
   display: grid;
   justify-content: center;
 }
@@ -11,8 +11,11 @@
 }
 .aboutTwo{
 margin: 30px;
-display: inline;
+display: grid;
+padding: 15px;
+
 }
+
 .video{
   min-height: 600px !important;
   width: 600px ;
@@ -33,13 +36,14 @@ color: blue;
   color: white;
 }
 .officeOne{
-background-color: cornflowerblue;
+background-color: #809fff;
 }
 .officeTwo{
 background-color: darkblue;
 }
 .officeThree{
-background-color: blue;
+background-color: #001861
+;
 }
 
 
