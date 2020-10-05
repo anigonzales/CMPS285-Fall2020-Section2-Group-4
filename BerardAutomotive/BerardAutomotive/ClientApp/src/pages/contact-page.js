@@ -3,41 +3,16 @@ import React, { useState } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
-// import { OfficeHours } from '../test/office-hours'
 import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
+// import './other-page.css'
 
-const OtherPage = () => {
+export const ContactPage = () => {
     const [open, setOpen] = useState(false);
-    const [setSelectedEvent] = useState();
+    const [selectedDate, setSelectedDate] = useState();
     const localizer = momentLocalizer(moment)
-    const events = [
-        {
-            id: 0,
-            title: 'Select',
-            allDay: true,
-            start: new Date(2020, 9, 1),
-            end: new Date(2020, 9, 1),
-        },
-        {
-            id: 1,
-            title: 'Select',
-            allDay: true,
-            start: new Date(2020, 9, 2),
-            end: new Date(2020, 9, 2),
-        },
-        {
-            id: 2,
-            title: 'Select',
-            allDay: true,
-            start: new Date(2020, 9, 3),
-            end: new Date(2020, 9, 3),
-        },
 
-
-    ]
-
-    const eventHandler = (event) => {
-        setSelectedEvent(event);
+    const eventHandler = ({ start }) => {
+        setSelectedDate(start);
         setOpen(true);
     }
     const options = [
@@ -57,44 +32,49 @@ const OtherPage = () => {
     return (
         <>
             <div className="other">
-            <Grid columns={3}>
-            <Grid.Row>
-                <Grid.Column className='officeOne'>
-                    <h2><Icon name='clock' />Office Hours:</h2>
-                    <h3>8:00am - 5:30pm</h3>
-                </Grid.Column>
-                <Grid.Column className='officeTwo'>
-                    <h2><Icon name='location arrow' />Address:</h2>
-                    <h3>723 Girod St, Mandeville, LA 70448</h3>
-                </Grid.Column>
-                <Grid.Column className='officeThree'>
-                    <h2><Icon name='phone' />Phone Number:</h2>
-                    <h3>(985) 624-8055</h3>
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+
+                <Grid columns={3}>
+                    <Grid.Row>
+                        <Grid.Column className='officeOne'>
+                            <h2><Icon name='clock' />Office Hours:</h2>
+                            <h3>Mon-Sat <br /> 8:00am - 5:30pm</h3>
+
+
+                        </Grid.Column>
+                        <Grid.Column className='officeTwo'>
+                            <h2><Icon name='location arrow' />Address:</h2>
+                            <h3>723 Girod St, Mandeville, LA 70448</h3>
+                        </Grid.Column>
+                        <Grid.Column className='officeThree'>
+                            <h2><Icon name='phone' />Phone Number:</h2>
+                            <h3>(985) 624-8055</h3>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+
                 <Calendar
-                    events={events}
+                    views={["month"]}
+                    events={[]}
+                    selectable
                     localizer={localizer}
                     startAccessor="start"
                     endAccessor="end"
-                    onSelectEvent={eventHandler}
+                    onSelectSlot={eventHandler}
                     style={{ height: 400, width: 700 }}
                 />
             </div>
             <Modal open={open} onClose={() => setOpen(false)} >
                 <Modal.Header>
-                    Message
+                    {moment(selectedDate).format("dddd, MMMM Do YYYY")}
                 </Modal.Header>
                 <Modal.Content>
-                    <h1>Appointment set to: </h1>
                     <Dropdown placeholder="Select Time" clearable options={options} selection />
                     <div>
                         <Input placeholder="Your Full Name" />
-                        <Input placeholder="Service Needed" />
                         <Input placeholder="Your Email" />
                         <Input placeholder="Your Phone Number" />
                     </div>
+                    <Input placeholder="Reason for Appointment" />
                 </Modal.Content>
                 <Modal.Actions>
                     <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
@@ -105,4 +85,4 @@ const OtherPage = () => {
     )
 }
 
-export default OtherPage;
+export default ContactPage;
