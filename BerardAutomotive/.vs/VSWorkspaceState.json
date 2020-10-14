@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BerardAutomotive",
+    "\\BerardAutomotive\\Controllers",
+    "\\BerardAutomotive\\Data",
+    "\\BerardAutomotive\\Features",
+    "\\BerardAutomotive\\Features\\OfficeHours",
+    "\\BerardAutomotive\\Properties"
+  ],
+  "SelectedNode": "\\BerardAutomotive\\Controllers\\OfficeHoursController.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BerardAutomotive.Features.Service;
+using BerardAutomotive.Data.Migrations;
 
 namespace BerardAutomotive.Data
 {
@@ -26,5 +27,9 @@ namespace BerardAutomotive.Data
         }
 
         public DbSet<BerardAutomotive.Features.Service.Service> Service { get; set; }
+
+        public DbSet<OfficeHours> OfficeHours { get; set; }
+
+        public DbSet<Login> Login { get; set;}
     }
 }
