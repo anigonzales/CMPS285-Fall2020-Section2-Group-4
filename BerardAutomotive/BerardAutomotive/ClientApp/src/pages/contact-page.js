@@ -4,6 +4,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
+const axios = require('axios');
 // import './other-page.css'
 
 export const ContactPage = () => {
@@ -28,7 +29,19 @@ export const ContactPage = () => {
         { key: 10, text: '5:00pm', value: 10 },
 
     ]
-
+    const send = () => {
+        axios.post('/api/Appointment', {
+            name: 'Dom',
+            phone: "999999",
+            time: moment().toDate(),
+            email: 'nfebiheo',
+            note: "hey"
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
     return (
         <>
             <div className="other">
@@ -78,7 +91,7 @@ export const ContactPage = () => {
                 </Modal.Content>
                 <Modal.Actions>
                     <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button color='green'>Send</Button>
+                    <Button color='green'onClick= {()=>send()}>Send</Button>
                 </Modal.Actions>
             </Modal>
         </>

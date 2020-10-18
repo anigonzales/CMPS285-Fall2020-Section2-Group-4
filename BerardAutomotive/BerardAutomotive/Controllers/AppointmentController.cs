@@ -46,7 +46,6 @@ namespace BerardAutomotive.Controllers
         {
             var data = dataContext.Set<Appointment>().Add(new Appointment
             {
-                Id = targetValue.Id,
                 Name = targetValue.Name,
                 Phone = targetValue.Phone,
                 Time = targetValue.Time,

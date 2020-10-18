@@ -11,7 +11,7 @@ namespace BerardAutomotive.Features.Appointment
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public long Phone { get; set; }
+        public string Phone { get; set; }
         public DateTimeOffset Time { get; set; }
         public string Email { get; set; }
         public string Note { get; set; }
