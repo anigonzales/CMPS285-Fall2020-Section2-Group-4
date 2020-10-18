@@ -36,3 +36,100 @@
     transform: rotate(360deg);
   }
 }
+
+.officeOne,.officeTwo,.officeThree{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid white;
+  height: 120px;
+  color: white;
+}
+.officeOne{
+background-color: #809fff;
+}
+.officeTwo{
+background-color: darkblue;
+}
+.officeThree{
+background-color: #001861;
+}
+
+.other{
+  margin: 30px;
+  display: grid;
+  justify-content: center;
+}
+
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.ServicesTabNav {
+  display: flex;
+flex-direction: column;
+width: 170px;
+margin: 0;
+padding: 0;
+}
+
+.about{
+  margin: 30px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.aboutTwo{
+  margin: 30px;
+  display: grid;
+  padding: 15px;
+  
+  }
+  
+  .video{
+    min-height: 600px !important;
+    width: 600px ;
+  }
+  
+  .divider{
+  color: blue;
+  }
+
+  .rbc-day-bg:hover {
+    background-color: #e5f4fe;
+    cursor: pointer;
+  }
+  .rbc-toolbar-label {
+    margin-right: 195px;
+  }
