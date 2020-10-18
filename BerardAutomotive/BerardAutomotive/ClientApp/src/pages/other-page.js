@@ -5,8 +5,11 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Modal, Input, Dropdown, Button, Popup, Grid, Icon } from 'semantic-ui-react'
 import './other-page.css'
+import Axios from 'axios'
+import { Field, Form } from 'react-final-form'
 
 export const OtherPage = () => {
+
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState();
     const localizer = momentLocalizer(moment)
@@ -28,6 +31,17 @@ export const OtherPage = () => {
         { key: 10, text: '5:00pm', value: 10 },
 
     ]
+
+    const createAppointment = (values) => {
+        Axios.post('/api/Appointment', {
+            ...values,
+            time: moment().toDate(),
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
 
     return (
         <>
@@ -67,19 +81,23 @@ export const OtherPage = () => {
                 <Modal.Header>
                     {moment(selectedDate).format("dddd, MMMM Do YYYY")}
                 </Modal.Header>
-                <Modal.Content>
-                    <Dropdown placeholder="Select Time" clearable options={options} selection />
-                    <div>
-                        <Input placeholder="Your Full Name" />
-                        <Input placeholder="Your Email" />
-                        <Input placeholder="Your Phone Number" />
-                    </div>
-                    <Input placeholder="Reason for Appointment" />
-                </Modal.Content>
-                <Modal.Actions>
-                    <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button color='green'>Send</Button>
-                </Modal.Actions>
+                <Form onSubmit={createAppointment} render={({ createAppointment }) => (
+                    <>
+                        <form onSubmit={createAppointment}>
+                            <Modal.Content>
+                                <Field name="name" component="input" placeholder="Your Full Name" />
+                                <Field name="email" component="input" placeholder="Email" />
+                                <Field name="phone" component="input" placeholder="Phone Number" />
+                                <Field name="note" component="input" placeholder="Note" />
+                                <Dropdown placeholder="Select Time" clearable options={options} selection />
+                            </Modal.Content>
+                            <Modal.Actions>
+                                <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
+                                <button type="submit">Submit</button>
+                            </Modal.Actions>
+                        </form>
+                    </>
+                )} />
             </Modal>
         </>
     )
