@@ -34,7 +34,6 @@ export const OtherPage = () => {
     const createAppointment = (values) => {
         Axios.post('/api/Appointment', {
             ...values,
-            phone: 1
         }).then((response) => {
             console.log(response);
         }).catch((error) => {
@@ -84,7 +83,7 @@ export const OtherPage = () => {
                             <Modal.Content>
                                 <Field name="name" component="input" placeholder="Your Full Name" />
                                 <Field name="email" component="input" placeholder="Email" />
-                                {/*<Field name="phone" component="input" placeholder="Phone Number" />*/}
+                                <Field name="phone" component="input" placeholder="Phone Number" />
                                 <Field name="note" component="input" placeholder="Note" />
                                 <Field name="time" component="select">
                                     <option />
