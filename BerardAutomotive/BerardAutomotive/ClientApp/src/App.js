@@ -9,7 +9,8 @@ import { ServicesPage } from './pages/services-page';
 import { OtherPage } from './pages/other-page';
 import { AboutUsPage } from './pages/about-us';
 import { MainPage } from './pages/main-page';
-import 'semantic-ui-css/semantic.min.css'
+import { LoginPage } from './pages/login-page';
+import 'semantic-ui-css/semantic.min.css';
 import TabsNav from './components/TabsNavigation/tabs-nav';
 import 'react-tabs/style/react-tabs.css';
 import Header from './components/Header';
@@ -34,6 +35,7 @@ function App() {
         <Route exact path={"/other"} component={OtherPage} />
         <Route exact path={"/about"} component={AboutUsPage} />
         <Route exact path={"/services"} component={ServicesPage} />
+        <Route exact path={"/login"} component={LoginPage} />
       </Router>
     </div>
 
