@@ -84,7 +84,7 @@ export const OtherPage = () => {
                                 <Field name="name" component="input" placeholder="Your Full Name" />
                                 <Field name="email" component="input" placeholder="Email" />
                                 <Field name="phone" component="input" placeholder="Phone Number" />
-                                <Field name="note" component="input" placeholder="Note" />
+                                <Field name="note" component="input" placeholder="Reason for Appointment" />
                                 <Field name="time" component="select">
                                     <option />
                                     {options.map(x => (
