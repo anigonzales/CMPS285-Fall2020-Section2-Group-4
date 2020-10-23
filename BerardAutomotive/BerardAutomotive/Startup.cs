@@ -103,5 +103,10 @@ namespace BerardAutomotive
             });
         }
     }
-    /*ANI IS SUS, I SAW HER VENT*/
+    /*ANI IS SUS, I SAW HER VENT
+     
+     
+     I had pizza today, wish it was tacos tho, 
+     */
+
 }
