@@ -12,6 +12,7 @@ import MainPage from './pages/main-page';
 import ContactPage from './pages/contact-page';
 import 'semantic-ui-css/semantic.min.css';
 import AboutPage from './pages/about-page';
+// import Axios from 'axios';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path={"/home"} component={MainPage} />
           <Route exact path={"/contact"} component={ContactPage} />
           <Route exact path={"/about"} component = {AboutPage} />
+          <Route exact path={"/"} component = {MainPage} />
         </Switch>
       </BrowserRouter>
     </div>

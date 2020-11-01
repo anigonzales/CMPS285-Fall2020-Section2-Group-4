@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
-// import './other-page.css'
 
 export const ContactPage = () => {
     const [open, setOpen] = useState(false);
