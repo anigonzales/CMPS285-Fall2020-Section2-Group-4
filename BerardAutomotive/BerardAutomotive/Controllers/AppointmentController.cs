@@ -35,6 +35,7 @@ namespace BerardAutomotive.Controllers
                 Email = x.Email,
             };
         }
+
         [HttpGet]
         public IEnumerable<AppointmentDto> GetAll()
         {

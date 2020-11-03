@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using BerardAutomotive.Data;
-using BerardAutomotive.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BerardAutomotive.Features.Authentication;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace BerardAutomotive
 {
@@ -30,11 +32,9 @@ namespace BerardAutomotive
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<DataContext>();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, DataContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
@@ -54,6 +54,8 @@ namespace BerardAutomotive
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AddUsers(app).GetAwaiter().GetResult();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -80,7 +82,6 @@ namespace BerardAutomotive
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -99,6 +100,37 @@ namespace BerardAutomotive
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+        }
+
+        private static async Task AddUsers(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+                if (userManager.Users.Any())
+                {
+                    return;
+                }
+
+                await CreateUser(userManager, "Admin", Roles.Admin);
+            }
+        }
+
+        private static async Task CreateUser(UserManager<User> userManager, string username, string role)
+        {
+            const string passwordForEveryone = "Password123!";
+            var user = new User { UserName = username };
+            await userManager.CreateAsync(user, passwordForEveryone);
+            await userManager.AddToRoleAsync(user, role);
+        }
+
+        private static void MigrateDb(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<DataContext>();
+                context.Database.Migrate();
+            }
         }
     }
 }
