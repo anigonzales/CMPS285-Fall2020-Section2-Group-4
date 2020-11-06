@@ -4,7 +4,7 @@ export const MainPage = () => {
 
     return (
         <div>
-            <h1>Berard's Automotive Home</h1>
+            <h1>Mike's Automotive Home</h1>
         </div >
     )
 }

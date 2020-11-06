@@ -5,7 +5,7 @@ function Header() {
     return (
         <div className="Header">
             <header>
-                <h1>Berard's Automotive</h1>
+                <h1>Mike's Automotive</h1>
             </header>
         </div>
     )

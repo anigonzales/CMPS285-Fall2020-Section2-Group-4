@@ -4,7 +4,7 @@ import pic7 from '../pictures/pic7.jpg'
 import pic9 from '../pictures/pic9.jpg'
 import pic10 from '../pictures/pic10.jpg'
 
-const AboutPage = () => {
+export const AboutPage = () => {
     return (
         <>
             <div >
@@ -41,17 +41,17 @@ const AboutPage = () => {
             </div>
 
             <div className='aboutTwo'>
-                <Image src={pic9} size='medium' verticalAlign='top'/>
-                    <span >Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers! </span>
-                    <Divider />
+                <Image src={pic9} size='medium' verticalAlign='top' />
+                <span >Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers! </span>
+                <Divider />
 
                 <Image src={pic7} size='medium' verticalAlign='top' />
-                    <span>Mark MacTurk -  Mark is a Service Technician. He has been in the automotive business for over 15 years. Mark is an ASE Certified Master Technician in all areas of automotive repair, specializing in Light Diesel Repair, Alternative Fuels and Smog Inspection.</span>
-                    <Divider />
+                <span>Mark MacTurk -  Mark is a Service Technician. He has been in the automotive business for over 15 years. Mark is an ASE Certified Master Technician in all areas of automotive repair, specializing in Light Diesel Repair, Alternative Fuels and Smog Inspection.</span>
+                <Divider />
 
                 <Image src={pic10} size='medium' verticalAlign='top' />
-                    <span>Donnie Tyson - Don is an ASE Certified Master Technician in all areas of automotive repair, specializing in everything to do with passenger cars and light truck diagnostics and repair. He is best known as one of the top technicians in the area by once winning the AC Delco “Top Shop Shoot Out” Diagnostics competition for the western 13 states.</span>
-                    <Divider />
+                <span>Donnie Tyson - Don is an ASE Certified Master Technician in all areas of automotive repair, specializing in everything to do with passenger cars and light truck diagnostics and repair. He is best known as one of the top technicians in the area by once winning the AC Delco “Top Shop Shoot Out” Diagnostics competition for the western 13 states.</span>
+                <Divider />
 
                 <Divider />
             </div>

@@ -1,47 +1,46 @@
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
+import { Link } from 'react-router-dom'
+import { Calendar, DateLocalizer, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
-import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
-const axios = require('axios');
-// import './other-page.css'
+import { Modal, Input, Dropdown, Button, Popup, Grid, Icon } from 'semantic-ui-react'
+import './contact-page.css'
+import Axios from 'axios'
+import { Form as SUIForm } from 'semantic-ui-react'
+import { Field, Form } from 'react-final-form'
 
 export const ContactPage = () => {
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState();
-    const localizer = momentLocalizer(moment)
+    const localizer = momentLocalizer(moment);
 
     const eventHandler = ({ start }) => {
         setSelectedDate(start);
         setOpen(true);
     }
     const options = [
-        { key: 1, text: '8:00am', value: 1 },
-        { key: 2, text: '9:00am', value: 2 },
-        { key: 3, text: '10:00am', value: 3 },
-        { key: 4, text: '11:00am', value: 4 },
-        { key: 5, text: '12:00pm', value: 5 },
-        { key: 6, text: '1:00pm', value: 6 },
-        { key: 7, text: '2:00pm', value: 7 },
-        { key: 8, text: '3:00pm', value: 8 },
-        { key: 9, text: '4:00pm', value: 9 },
-        { key: 10, text: '5:00pm', value: 10 },
-
+        { key: 1, text: '8:00am', value: moment(selectedDate).set({ 'hour': 8, 'minute': 0, 'second': 0 }).format() },
+        { key: 2, text: '9:00am', value: moment(selectedDate).set({ 'hour': 9, 'minute': 0, 'second': 0 }).format() },
+        { key: 3, text: '10:00am', value: moment(selectedDate).set({ 'hour': 10, 'minute': 0, 'second': 0 }).format() },
+        { key: 4, text: '11:00am', value: moment(selectedDate).set({ 'hour': 11, 'minute': 0, 'second': 0 }).format() },
+        { key: 5, text: '12:00pm', value: moment(selectedDate).set({ 'hour': 12, 'minute': 0, 'second': 0 }).format() },
+        { key: 6, text: '1:00pm', value: moment(selectedDate).set({ 'hour': 1, 'minute': 0, 'second': 0 }).format() },
+        { key: 7, text: '2:00pm', value: moment(selectedDate).set({ 'hour': 2, 'minute': 0, 'second': 0 }).format() },
+        { key: 8, text: '3:00pm', value: moment(selectedDate).set({ 'hour': 3, 'minute': 0, 'second': 0 }).format() },
+        { key: 9, text: '4:00pm', value: moment(selectedDate).set({ 'hour': 4, 'minute': 0, 'second': 0 }).format() },
+        { key: 10, text: '5:00pm', value: moment(selectedDate).set({ 'hour': 5, 'minute': 0, 'second': 0 }).format() },
     ]
-    const send = () => {
-        axios.post('/api/Appointment', {
-            name: 'Dom',
-            phone: "999999",
-            time: moment().toDate(),
-            email: 'nfebiheo',
-            note: "hey"
+
+    const createAppointment = (values) => {
+        Axios.post('/api/Appointment', {
+            ...values,
         }).then((response) => {
             console.log(response);
         }).catch((error) => {
             console.log(error);
         })
     }
+
     return (
         <>
             <div className="other">
@@ -51,8 +50,6 @@ export const ContactPage = () => {
                         <Grid.Column className='officeOne'>
                             <h2><Icon name='clock' />Office Hours:</h2>
                             <h3>Mon-Sat <br /> 8:00am - 5:30pm</h3>
-
-
                         </Grid.Column>
                         <Grid.Column className='officeTwo'>
                             <h2><Icon name='location arrow' />Address:</h2>
@@ -80,22 +77,29 @@ export const ContactPage = () => {
                 <Modal.Header>
                     {moment(selectedDate).format("dddd, MMMM Do YYYY")}
                 </Modal.Header>
-                <Modal.Content>
-                    <Dropdown placeholder="Select Time" clearable options={options} selection />
-                    <div>
-                        <Input placeholder="Your Full Name" />
-                        <Input placeholder="Your Email" />
-                        <Input placeholder="Your Phone Number" />
-                    </div>
-                    <Input placeholder="Reason for Appointment" />
-                </Modal.Content>
-                <Modal.Actions>
-                    <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button color='green'onClick= {()=>send()}>Send</Button>
-                </Modal.Actions>
+                <Form onSubmit={createAppointment} render={({ handleSubmit }) => (
+                    <>
+                        <SUIForm onSubmit={handleSubmit}>
+                            <Modal.Content>
+                                <Field name="name" component="input" placeholder="Your Full Name" />
+                                <Field name="email" component="input" placeholder="Email" />
+                                <Field name="phone" component="input" placeholder="Phone Number" />
+                                <Field name="note" component="input" placeholder="Reason for Appointment" />
+                                <Field name="time" component="select">
+                                    <option />
+                                    {options.map(x => (
+                                        <option value={x.value}>{x.text}</option>
+                                    ))}
+                                </Field>
+                            </Modal.Content>
+                            <Modal.Actions>
+                                <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
+                                <button type="submit">Submit</button>
+                            </Modal.Actions>
+                        </SUIForm>
+                    </>
+                )} />
             </Modal>
         </>
     )
 }
-
-export default ContactPage;
