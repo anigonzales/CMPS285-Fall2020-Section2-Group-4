@@ -1,0 +1,19 @@
+.active {
+    width: 100% !important
+}
+
+.RML-login-modal-mode div:nth-child(2){
+    width: 0px;
+    height: 0ps;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.RML-login-modal-mode {
+    height: 30px
+}
+
+/* label{
+    color: 000000 
+} */
