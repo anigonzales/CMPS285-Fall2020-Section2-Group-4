@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'react-tabs/style/react-tabs.css';
 import './Header.css'
 import './Footer.css'
@@ -21,10 +21,12 @@ export const MainRoutes = () => {
                 <Header />
                 <Footer />
                 <TabsNav />
-                <Route exact path={"/home/main"} component={MainPage} />
-                <Route exact path={"/home/contact"} component={ContactPage} />
-                <Route exact path={"/home/about"} component={AboutPage} />
-                <Route exact path={"/home/services"} component={ServicesPage} />
+                <Switch>
+                    <Route exact path={"/home/main"} component={MainPage} />
+                    <Route exact path={"/home/contact"} component={ContactPage} />
+                    <Route exact path={"/home/about"} component={AboutPage} />
+                    <Route exact path={"/home/services"} component={ServicesPage} />
+                </Switch>
             </Router>
         </>
     )
