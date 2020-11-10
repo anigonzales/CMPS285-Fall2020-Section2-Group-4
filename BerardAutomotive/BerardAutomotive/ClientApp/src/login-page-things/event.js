@@ -20,6 +20,9 @@ function Event() {
                     <Form.Field
                         className='inputbox'
                         control={TextArea}
+                        rows="5"
+                        cols="40"
+                        maxlength="70"
                         placeholder='Type here...'
 
                     />

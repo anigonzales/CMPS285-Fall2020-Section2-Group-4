@@ -5,7 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Modal, Input, Dropdown, Button, Popup, Grid, Icon } from 'semantic-ui-react'
 import './contact-page.css'
-import Axios from 'axios'
+import axios from 'axios'
 import { Form as SUIForm } from 'semantic-ui-react'
 import { Field, Form } from 'react-final-form'
 
@@ -32,7 +32,7 @@ export const ContactPage = () => {
     ]
 
     const createAppointment = (values) => {
-        Axios.post('/api/Appointment', {
+        axios.post('/api/Appointment', {
             ...values,
         }).then((response) => {
             console.log(response);
