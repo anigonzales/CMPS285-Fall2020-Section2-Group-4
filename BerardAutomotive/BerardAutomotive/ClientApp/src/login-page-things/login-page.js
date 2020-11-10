@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './components/NavBar';
 import './login-page.css'
-import { Messages } from './messages'
+import { Messages } from './Messages.js'
 import Event from './event'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 

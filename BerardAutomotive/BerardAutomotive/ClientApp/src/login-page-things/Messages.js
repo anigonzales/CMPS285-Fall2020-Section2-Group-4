@@ -1,74 +1,88 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Table, Checkbox, Button, Icon } from 'semantic-ui-react'
+import axios from 'axios'
 
-export const Messages = () => (
-    <>
-        <div className='messages'>
-            <h1>Messages</h1>
-        </div>
-        <div>
-            <Table compact celled definition>
-                <Table.Header>
-                    <Table.Row>
+export const Messages = () => {
+
+    const [getThing, setGetThing] = useState({
+        col: [{
+            name: "name",
+            phone: "phone",
+            time: "Time",
+            email: "email",
+            note: "note",
+        }],
+        data: [],
+    });
+
+    useEffect(() => {
+
+        axios.get('/api/Appointment')
+            .then((r) => {
+                setGetThing((table) => {
+                    const callData = { ...table };
+                    r.data.map((d) => {
+                        callData.data = [...callData.data, d];
+                    })
+                    return callData;
+                });
+            });
+    }, []);
+
+    const rows = getThing.data;
+    console.log(getThing);
+
+
+    return (
+        <>
+            <div className='messages'>
+                <h1>Messages</h1>
+            </div>
+            <div>
+                <Table compact celled definition>
+                    <Table.Header>
+
                         <Table.HeaderCell />
                         <Table.HeaderCell>Name</Table.HeaderCell>
                         <Table.HeaderCell>Apt Date/Time</Table.HeaderCell>
                         <Table.HeaderCell>E-mail</Table.HeaderCell>
                         <Table.HeaderCell>Phone</Table.HeaderCell>
                         <Table.HeaderCell>Reason for Apt</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
 
-                <Table.Body>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox />
-                        </Table.Cell>
-                        <Table.Cell>John Lilki</Table.Cell>
-                        <Table.Cell>November 14, 2020 - 1:00pm</Table.Cell>
-                        <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-                        <Table.Cell>(985)375-4231</Table.Cell>
-                        <Table.Cell>Engine Problems</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox />
-                        </Table.Cell>
-                        <Table.Cell>Jamie Harington</Table.Cell>
-                        <Table.Cell>January 11, 2021 - 4:00pm</Table.Cell>
-                        <Table.Cell>jamieharingonton@yahoo.com</Table.Cell>
-                        <Table.Cell>(985)298-3386</Table.Cell>
-                        <Table.Cell>Oil Change</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell collapsing>
-                            <Checkbox />
-                        </Table.Cell>
-                        <Table.Cell>Jill Lewis</Table.Cell>
-                        <Table.Cell>December 4, 2020 - 10:00am</Table.Cell>
-                        <Table.Cell>jilsewris22@yahoo.com</Table.Cell>
-                        <Table.Cell>(985)275-7886</Table.Cell>
-                        <Table.Cell>My car broke af</Table.Cell>
-                    </Table.Row>
-                </Table.Body>
-                <Table.Footer fullWidth>
-                    <Table.Row>
-                        <Table.HeaderCell>
-                            <Button
-                                icon
-                                size='small'
-                            >
-                                <Icon name='trash' />
-                            </Button>
-                        </Table.HeaderCell>
-                        <Table.HeaderCell colSpan='5'>
+                    </Table.Header>
 
-                        </Table.HeaderCell>
-                    </Table.Row>
-                </Table.Footer>
-            </Table>
-        </div>
-    </>
-)
+                    <Table.Body>
+                        {rows.map((row) => (
+                            <Table.Row>
+                                <Table.Cell collapsing>
+                                    <Checkbox />
+                                </Table.Cell>
+                                <Table.Cell>{row.name}</Table.Cell>
+                                <Table.Cell>{row.phone}</Table.Cell>
+                                <Table.Cell>{row.time}</Table.Cell>
+                                <Table.Cell>{row.phone}</Table.Cell>
+                                <Table.Cell>{row.note}</Table.Cell>
+                            </Table.Row>
+                        ))}
+                    </Table.Body>
+                    <Table.Footer fullWidth>
+                        <Table.Row>
+                            <Table.HeaderCell>
+                                <Button
+                                    icon
+                                    size='small'
+                                >
+                                    <Icon name='trash' />
+                                </Button>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell colSpan='5'>
+                            </Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Footer>
+                </Table>
+            </div>
+        </>
+    );
+}
 
 
