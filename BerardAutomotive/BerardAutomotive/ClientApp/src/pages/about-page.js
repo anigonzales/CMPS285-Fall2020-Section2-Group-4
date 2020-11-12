@@ -41,7 +41,7 @@ const AboutPage = () => {
             </div>
 
             <div className='aboutTwo'>
-                <Image src={pic9} size='medium' verticalAlign='top'/>
+                <Image src={pic9} size='medium' verticalAlign='top' float = 'left'/>
                     <span >Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers! </span>
                     <Divider />
 

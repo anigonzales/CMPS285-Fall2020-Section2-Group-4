@@ -1,5 +1,7 @@
 .active {
-    width: 100% !important
+    width: 100% !important;
+    z-index: 1;
+    position: relative;
 }
 
 .RML-login-modal-mode div:nth-child(2){
@@ -14,6 +16,9 @@
     height: 30px
 }
 
-/* label{
-    color: 000000 
-} */
+label {
+    color: black;
+    text-align: left;
+    float: left;
+    font-weight: bold;
+}

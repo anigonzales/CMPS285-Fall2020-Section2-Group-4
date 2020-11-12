@@ -133,3 +133,26 @@ padding: 0;
   .rbc-toolbar-label {
     margin-right: 195px;
   }
+
+  /* .react-tabs__tab--selected {
+    background: #fff;
+  border-color: #aaa;
+  color: black;
+  border-radius: 5px 5px 0 0;
+  } */
+
+  .carousel {
+    width:500px;
+    height:270px;
+    justify-content: center;
+    border:2px solid blue;
+    margin:auto;
+    z-index: 0;
+  }
+
+  .d-blockw-100{
+    width:500px;
+    height:270px;
+    justify-content: center;
+    margin:auto;
+  }
