@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BerardAutomotive.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201103022814_Init")]
+    [Migration("20201113233825_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

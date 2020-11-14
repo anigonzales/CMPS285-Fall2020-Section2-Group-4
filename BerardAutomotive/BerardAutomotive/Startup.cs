@@ -54,7 +54,7 @@ namespace BerardAutomotive
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            AddUsers(app).GetAwaiter().GetResult();
+            //AddUsers(app).GetAwaiter().GetResult();
 
             app.UseSwagger();
 

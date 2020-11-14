@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using BerardAutomotive.Features.Authentication;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography.X509Certificates;
+using BerardAutomotive.Features.Events;
 
 namespace BerardAutomotive.Data
 {
@@ -42,5 +43,7 @@ namespace BerardAutomotive.Data
         public DbSet<Service> Service { get; set; }
         
         public DbSet<Appointment> Appointments { get; set; }
+
+        public DbSet<Event> Event { get; set; }
     }
 }
