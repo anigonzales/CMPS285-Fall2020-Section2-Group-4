@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Button,
-    Checkbox,
     Form,
-    Input,
-    Radio,
-    Select,
     TextArea,
 } from 'semantic-ui-react'
+import Axios from 'axios'
+
 
 function Event() {
+    const createEvent = (values) => {
+        Axios.post('/api/Event', {
+            ...values,
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
     return (
         <>
             <div className='messages'>

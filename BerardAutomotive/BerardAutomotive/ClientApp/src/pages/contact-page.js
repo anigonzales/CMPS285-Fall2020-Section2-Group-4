@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
@@ -41,6 +41,31 @@ export const ContactPage = () => {
             console.log(error);
         })
     }
+    const [getThing, setGetThing] = useState({
+        col: [{
+
+            note: "note",
+        }],
+        data: [],
+    });
+
+    useEffect(() => {
+
+        Axios.get('/api/Event')
+            .then((r) => {
+                setGetThing((table) => {
+                    const callData = { ...table };
+                    r.data.map((d) => {
+                        callData.data = [...callData.data, d];
+                    })
+                    return callData;
+                });
+            });
+    }, []);
+
+    const rows = getThing.data;
+    console.log(getThing);
+
 
     return (
         <>
