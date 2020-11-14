@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import axios from 'axios'
 import {
     Button,
     Form,
     TextArea,
 } from 'semantic-ui-react'
-import Axios from 'axios'
-
 
 function Event() {
+
     const createEvent = (values) => {
-        Axios.post('/api/Event', {
+        axios.post('/api/Appointment', {
             ...values,
         }).then((response) => {
             console.log(response);
@@ -17,6 +17,7 @@ function Event() {
             console.log(error);
         })
     }
+
     return (
         <>
             <div className='messages'>
@@ -27,6 +28,9 @@ function Event() {
                     <Form.Field
                         className='inputbox'
                         control={TextArea}
+                        rows="5"
+                        cols="40"
+                        maxlength="70"
                         placeholder='Type here...'
 
                     />

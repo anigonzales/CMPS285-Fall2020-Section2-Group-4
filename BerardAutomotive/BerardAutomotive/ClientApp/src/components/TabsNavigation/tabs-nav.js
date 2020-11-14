@@ -14,11 +14,8 @@ function TabsNav() {
                     <Link to="/home/contact"><Tab>Contact Us</Tab> </Link>
                 </TabList>
 
-                <TabPanel>
-                    {/* <a href = {ServicesPage}> </a>      */}
-                </TabPanel>
-                <TabPanel>add link to about us page </TabPanel>
-                <TabPanel>add link to contact us page</TabPanel>
+
+
             </Tabs>
         </div>
 

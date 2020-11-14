@@ -1,8 +1,4 @@
-.other{
-  margin: 30px;
-  display: grid;
-  justify-content: center;
-}
+
 .about{
   margin: 30px;
   height: 200px;
@@ -26,24 +22,5 @@ color: blue;
 }
 
 
-.officeOne,.officeTwo,.officeThree{
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border: 2px solid white;
-  height: 120px;
-  color: white;
-}
-.officeOne{
-background-color: #809fff;
-}
-.officeTwo{
-background-color: darkblue;
-}
-.officeThree{
-background-color: #001861
-;
-}
 
 

@@ -4,9 +4,9 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { Calendar, DateLocalizer, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import { Modal, Input, Dropdown, Button, Popup, Grid, Icon } from 'semantic-ui-react'
+import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
 import './contact-page.css'
-import Axios from 'axios'
+import axios from 'axios'
 import { Form as SUIForm } from 'semantic-ui-react'
 import { Field, Form } from 'react-final-form'
 
@@ -33,7 +33,7 @@ export const ContactPage = () => {
     ]
 
     const createAppointment = (values) => {
-        Axios.post('/api/Appointment', {
+        axios.post('/api/Appointment', {
             ...values,
         }).then((response) => {
             console.log(response);
@@ -69,7 +69,7 @@ export const ContactPage = () => {
 
     return (
         <>
-            <div className="other">
+            <div className="contact">
 
                 <Grid columns={3}>
                     <Grid.Row>
@@ -77,55 +77,71 @@ export const ContactPage = () => {
                             <h2><Icon name='clock' />Office Hours:</h2>
                             <h3>Mon-Sat <br /> 8:00am - 5:30pm</h3>
                         </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
                         <Grid.Column className='officeTwo'>
                             <h2><Icon name='location arrow' />Address:</h2>
                             <h3>723 Girod St, Mandeville, LA 70448</h3>
                         </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
                         <Grid.Column className='officeThree'>
                             <h2><Icon name='phone' />Phone Number:</h2>
                             <h3>(985) 624-8055</h3>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <div>
+                    <h1 className='setup'>Set up an appointment.</h1>
+                    <h3 className='selectadate'>Select a date to enter your information.</h3>
+                    <Calendar
+                        views={["month"]}
+                        events={[]}
+                        selectable
+                        localizer={localizer}
+                        startAccessor="start"
+                        endAccessor="end"
+                        onSelectSlot={eventHandler}
+                        style={{ height: 400, width: 700 }}
+                    />
+                </div>
+                <Grid columns={3}>
+                    <Grid.Row>
+                        <Grid.Column className='eventsgo'>
 
-                <Calendar
-                    views={["month"]}
-                    events={[]}
-                    selectable
-                    localizer={localizer}
-                    startAccessor="start"
-                    endAccessor="end"
-                    onSelectSlot={eventHandler}
-                    style={{ height: 400, width: 700 }}
-                />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </div>
-            <Modal open={open} onClose={() => setOpen(false)} >
-                <Modal.Header>
-                    {moment(selectedDate).format("dddd, MMMM Do YYYY")}
-                </Modal.Header>
-                <Form onSubmit={createAppointment} render={({ handleSubmit }) => (
-                    <>
-                        <SUIForm onSubmit={handleSubmit}>
-                            <Modal.Content>
-                                <Field name="name" component="input" placeholder="Your Full Name" />
-                                <Field name="email" component="input" placeholder="Email" />
-                                <Field name="phone" component="input" placeholder="Phone Number" />
-                                <Field name="note" component="input" placeholder="Reason for Appointment" />
-                                <Field name="time" component="select">
-                                    <option />
-                                    {options.map(x => (
-                                        <option value={x.value}>{x.text}</option>
-                                    ))}
-                                </Field>
-                            </Modal.Content>
-                            <Modal.Actions>
-                                <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
-                                <button type="submit">Submit</button>
-                            </Modal.Actions>
-                        </SUIForm>
-                    </>
-                )} />
-            </Modal>
+            <div>
+                <Modal open={open} onClose={() => setOpen(false)} >
+                    <Modal.Header>
+                        {moment(selectedDate).format("dddd, MMMM Do YYYY")}
+                    </Modal.Header>
+                    <Form onSubmit={createAppointment} render={({ handleSubmit }) => (
+                        <>
+                            <SUIForm onSubmit={handleSubmit}>
+                                <Modal.Content>
+                                    <Field name="name" component="input" placeholder="Your Full Name" />
+                                    <Field name="email" component="input" placeholder="Email" />
+                                    <Field name="phone" component="input" placeholder="Phone Number" />
+                                    <Field name="note" component="input" placeholder="Reason for Appointment" />
+                                    <Field name="time" component="select">
+                                        <option />
+                                        {options.map(x => (
+                                            <option value={x.value}>{x.text}</option>
+                                        ))}
+                                    </Field>
+                                </Modal.Content>
+                                <Modal.Actions>
+                                    <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
+                                    <button type="submit">Submit</button>
+                                </Modal.Actions>
+                            </SUIForm>
+                        </>
+                    )} />
+                </Modal>
+            </div>
         </>
     )
 }
