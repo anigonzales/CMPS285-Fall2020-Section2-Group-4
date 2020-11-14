@@ -1,15 +1,23 @@
 import React from 'react'
+import axios from 'axios'
 import {
     Button,
-    Checkbox,
     Form,
-    Input,
-    Radio,
-    Select,
     TextArea,
 } from 'semantic-ui-react'
 
 function Event() {
+
+    const createEvent = (values) => {
+        axios.post('/api/Appointment', {
+            ...values,
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     return (
         <>
             <div className='messages'>

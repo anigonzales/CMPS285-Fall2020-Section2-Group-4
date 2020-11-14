@@ -1,13 +1,20 @@
 import React, { useEffect, useState, Button } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter, Redirect } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import 'react-tabs/style/react-tabs.css';
 import { MainRoutes } from './main-routes.js'
 import LoginPage from './login-page-things/login-page'
+import 'semantic-ui-css/semantic.min.css'
+import 'react-tabs/style/react-tabs.css';
+import { BrowserRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import 'react-tabs/style/react-tabs.css';
+import './Header.css'
+import './Footer.css'
+import './App.css';
 
 
 function App() {
+
 
   return (
     <>
@@ -19,9 +26,6 @@ function App() {
           <Route path="/login" exact>
             <LoginPage />
           </Route>
-          {/*<Route>
-            <Redirect to="/home/main" />
-          </Route>*/}
         </Router>
       </div>
     </>

@@ -22,7 +22,7 @@ export const MainRoutes = () => {
                 <Footer />
                 <TabsNav />
                 <Switch>
-                    <Route exact path={"/home/main"} component={MainPage} />
+                    <Route exact path={"/home"} component={MainPage} />
                     <Route exact path={"/home/contact"} component={ContactPage} />
                     <Route exact path={"/home/about"} component={AboutPage} />
                     <Route exact path={"/home/services"} component={ServicesPage} />
