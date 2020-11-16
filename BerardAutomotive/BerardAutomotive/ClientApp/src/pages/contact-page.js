@@ -10,7 +10,7 @@ import Axios from 'axios'
 import { Form as SUIForm } from 'semantic-ui-react'
 import { Field, Form } from 'react-final-form'
 
-export const ContactPage = () => {
+ const ContactPage = () => {
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState();
     const localizer = momentLocalizer(moment);
@@ -145,3 +145,5 @@ export const ContactPage = () => {
         </>
     )
 }
+
+export default ContactPage;
