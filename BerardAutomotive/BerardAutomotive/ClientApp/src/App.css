@@ -140,18 +140,14 @@ background-color: #001861;
   .rbc-toolbar-label {
     margin-right: 195px;
   }
+/* 
+  .react_tabs-__tab > #react-tabs__tab--selected {
+    display:none;
+  }  */
 
-  /* .react-tabs__tab--selected {
-    background: #fff;
-  border-color: #aaa;
-  color: black;
-  border-radius: 5px 5px 0 0;
-  } */
-
-  /* .react-tabs__tab-list {
-    position: absolute;
-    z-index: -1;
-  } */
+  #react-tabs-0.react-tabs__tab.react-tabs__tab--selected {
+    display: none
+  }
 
   .carousel {
     width:500px;
