@@ -1,14 +1,12 @@
 import React from 'react';
 import '../Footer.css';
-import LoginPopup from './Login-popup';
+import LoginPopup from './Login-popup'
 
-function Footer(){
+function Footer() {
     return (
         <div className="Footer">
-            <footer style = {{"overflow" : "hidden"}}>
-                {/* <a href> Berard's Automotive Login Area </a> */}
+            <footer>
                 <LoginPopup />
-                {/* <p>login here</p> */}
             </footer>
         </div>
     )
