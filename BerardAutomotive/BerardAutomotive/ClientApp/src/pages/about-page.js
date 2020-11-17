@@ -15,7 +15,7 @@ const AboutPage = () => {
                         </Header>
                     </Divider>
 
-                    <p text-align='right'>
+                    <p text-align='right' style ={{'textAlign': 'left'}}>
                         Owner and operator Mike Levytskyi has been working in the
                         automotive field since 2010. Started acquiring ASE certifications
                         in 2005 while working at Firestone, in the fields of Engine Repair,
