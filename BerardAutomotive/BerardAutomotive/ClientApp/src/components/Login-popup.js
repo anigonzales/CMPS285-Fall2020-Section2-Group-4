@@ -110,12 +110,12 @@ class LoginPopup extends React.Component {
                         loginInputs: [
                             {
                                 containerClass: 'RML-form-group',
-                                label: 'Email',
+                                label: 'Username',
                                 type: 'email',
                                 inputClass: 'RML-form-control',
                                 id: 'email',
                                 name: 'email',
-                                placeholder: 'Email',
+                                placeholder: 'Username',
                             },
                             {
                                 containerClass: 'RML-form-group',
