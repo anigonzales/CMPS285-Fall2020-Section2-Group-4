@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { Calendar, DateLocalizer, momentLocalizer } from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
-import { Modal, Input, Dropdown, Button, Grid, Icon } from 'semantic-ui-react'
+import { Modal, Input, Dropdown, Button, Grid, Icon, Message } from 'semantic-ui-react'
 import './contact-page.css'
 import axios from 'axios'
 import { Form as SUIForm } from 'semantic-ui-react'
@@ -19,6 +19,12 @@ export const ContactPage = () => {
         setSelectedDate(start);
         setOpen(true);
     }
+
+
+    const onButtonClickHandler = () => {
+        window.alert('You Have Sent A Message!')
+    };
+
     const options = [
         { key: 1, text: '8:00am', value: moment(selectedDate).set({ 'hour': 8, 'minute': 0, 'second': 0 }).format() },
         { key: 2, text: '9:00am', value: moment(selectedDate).set({ 'hour': 9, 'minute': 0, 'second': 0 }).format() },
@@ -44,7 +50,8 @@ export const ContactPage = () => {
 
     return (
         <>
-            <div className="contact">
+
+            <div className='contact'>
 
                 <Grid columns={3}>
                     <Grid.Row>
@@ -77,21 +84,16 @@ export const ContactPage = () => {
                         startAccessor="start"
                         endAccessor="end"
                         onSelectSlot={eventHandler}
-                        style={{ height: 400, width: 700 }}
+                        style={{ height: 400, width: 800 }}
                     />
                 </div>
-                <Grid columns={3}>
-                    <Grid.Row>
-                        <Grid.Column className='eventsgo'>
 
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
             </div>
             <div>
                 <Modal open={open} onClose={() => setOpen(false)} >
                     <Modal.Header>
                         {moment(selectedDate).format("dddd, MMMM Do YYYY")}
+
                     </Modal.Header>
                     <Form onSubmit={createAppointment} render={({ handleSubmit }) => (
                         <>
@@ -101,22 +103,27 @@ export const ContactPage = () => {
                                     <Field name="email" component="input" placeholder="Email" />
                                     <Field name="phone" component="input" placeholder="Phone Number" />
                                     <Field name="note" component="input" placeholder="Reason for Appointment" />
-                                    <Field name="time" component="select">
+                                    <p>Pick a time.</p>
+                                    <Field name="time" component="select" >
                                         <option />
+                                        <option disabled={true} value="">Pick a Time</option>
                                         {options.map(x => (
-                                            <option value={x.value}>{x.text}</option>
+                                            <option value={x.value}>{x.text} </option>
                                         ))}
                                     </Field>
                                 </Modal.Content>
                                 <Modal.Actions>
                                     <Button color='red' onClick={() => setOpen(false)}>Cancel</Button>
-                                    <button type="submit">Submit</button>
+                                    <Button color='blue' onClick={onButtonClickHandler} type="submit">Submit</Button>
+
                                 </Modal.Actions>
                             </SUIForm>
                         </>
                     )} />
                 </Modal>
+
             </div>
+
         </>
     )
 }

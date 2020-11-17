@@ -40,6 +40,8 @@ function Navbar() {
 
             </IconContext.Provider>
 
+            <h1 className='stuffonpage'>Admin Dashboard</h1>
+
         </>
     )
 }

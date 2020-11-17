@@ -15,11 +15,5 @@ export const SidebarData = [
         icon: <FaIcons.FaEnvelopeOpenText />,
         cName: 'nav-text'
     },
-    {
-        title: 'Create Event',
-        path: '/event',
-        icon: <FaIcons.FaCalendarDay />,
-        cName: 'nav-text'
-    },
 
 ]
