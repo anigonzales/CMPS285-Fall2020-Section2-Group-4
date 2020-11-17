@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Divider, Header, Image } from 'semantic-ui-react'
-import pic7 from '../pictures/pic7.jpg'
-import pic9 from '../pictures/pic9.jpg'
-import pic10 from '../pictures/pic10.jpg'
+import { Container, Divider, Header } from 'semantic-ui-react'
+import pic1 from '../pictures/pic1.jpg'
+import pic2 from '../pictures/pic2.jpg'
+import pic3 from '../pictures/pic3.jpg'
 
 const AboutPage = () => {
     return (
@@ -15,7 +15,7 @@ const AboutPage = () => {
                         </Header>
                     </Divider>
 
-                    <p text-align='right'>
+                    <p text-align='right' style ={{'textAlign': 'left'}}>
                         Owner and operator Mike Levytskyi has been working in the
                         automotive field since 2010. Started acquiring ASE certifications
                         in 2005 while working at Firestone, in the fields of Engine Repair,
@@ -41,21 +41,27 @@ const AboutPage = () => {
             </div>
 
             <div className='aboutTwo'>
-                <Image src={pic9} size='medium' verticalAlign='top'/>
-                    <span >Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers! </span>
-                    <Divider />
 
-                <Image src={pic7} size='medium' verticalAlign='top' />
-                    <span>Mark MacTurk -  Mark is a Service Technician. He has been in the automotive business for over 15 years. Mark is an ASE Certified Master Technician in all areas of automotive repair, specializing in Light Diesel Repair, Alternative Fuels and Smog Inspection.</span>
-                    <Divider />
+                <div className='pic1'>
+                    <p style={{float: "left"}}><img src={pic3} height="200px" width="250px" hspace="20" alt=""/></p>
+                    <p> Matthew Ryan -  Matt has extensive experience in maintenance, repair, service, machinery, and equipment. He has an extensive background in welding and fabrication. Matt is a very motivated and ambitious worker and has developed quite a following with our customers!</p>
+                </div>
 
-                <Image src={pic10} size='medium' verticalAlign='top' />
-                    <span>Donnie Tyson - Don is an ASE Certified Master Technician in all areas of automotive repair, specializing in everything to do with passenger cars and light truck diagnostics and repair. He is best known as one of the top technicians in the area by once winning the AC Delco “Top Shop Shoot Out” Diagnostics competition for the western 13 states.</span>
-                    <Divider />
-
-                <Divider />
+                <div className="pic2">
+                    <div style={{clear: "left"}}>
+                        <p style={{float: "left"}}><img src={pic1} height="200" width="250" border="1px" hspace="20" alt=""/></p>
+                        <p>Mark MacTurk -  Mark is a Service Technician. He has been in the automotive business for over 15 years. Mark is an ASE Certified Master Technician in all areas of automotive repair, specializing in Light Diesel Repair, Alternative Fuels and Smog Inspection.</p>
+                    </div>
+                </div>
+                
+                <div className= "pic3">
+                    <div style={{clear: "left"}}>
+                        <p style={{float: "left"}}><img src={pic2} height="200" width="250" border="1px" hspace="20" alt=""/></p>
+                        <p>Donnie Tyson - Don is an ASE Certified Master Technician in all areas of automotive repair, specializing in everything to do with passenger cars and light truck diagnostics and repair. He is best known as one of the top technicians in the area by once winning the AC Delco “Top Shop Shoot Out” Diagnostics competition for the western 13 states.</p>
+                    </div>
+                </div>
+                
             </div>
-
         </>
 
     )
