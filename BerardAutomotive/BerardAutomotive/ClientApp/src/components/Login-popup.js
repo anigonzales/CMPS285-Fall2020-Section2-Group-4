@@ -1,71 +1,19 @@
 import React from 'react';
 import ReactModalLogin from "react-modal-login";
 import './login.css';
-import axios from'axios'
 
 class LoginPopup extends React.Component {
-
     constructor(props) {
         super(props);
+
         this.state = {
-          username: '',
-          password: '',
-          redirect: false
-    
-        }
-        this.myaxios = this.myaxios.bind(this);
-        this.handleUsername = this.handleUsername.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-      }
-    
-      handleUsername(e) {
-        var value = e.target.value;
-        if (value != null) {
-          this.setState({ username: value })
-        }
-      }
-    
-      handlePassword(e) {
-        var value = e.target.value;
-        if (value != null) {
-          this.setState({ password: value })
-        }
-      }
-    
-     async myaxios() {
-        var self = this;
-        await axios.post("/api/authentication/login", {
-          username: this.state.username,
-          password: this.state.password,
-        }, { config : {header: {'Content-Type' : 'application/json'}}})
-        .then((r) => {
-          if (r.status == 200) {
-            console.log(this.state);
-            self.setState({ redirect: true });
-            sessionStorage.setItem("username", r.data.username);
-            console.log(this.state);
-          }
-        }).catch((err) => {
-    
-          console.log(err);
-          alert("Incorrect Username or Password. Please try again");
-        }).finally(() => {
-          console.log(this.state);
-        });
-        window.location.reload(false);
-      }
-
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         showModal: false,
-    //         loggedIn: null,
-    //         loading: false,
-    //         error: null,
-    //         initialTab: null,
-    //     };
-    // }
+            showModal: false,
+            loggedIn: null,
+            loading: false,
+            error: null,
+            initialTab: null,
+        };
+    }
 
     onLogin() {
         console.log('__onLogin__');
@@ -95,7 +43,7 @@ class LoginPopup extends React.Component {
     }
 
     onLoginSuccess(method, response) {
-        this.myaxios();
+
         this.closeModal();
         this.setState({
             loggedIn: method,
@@ -132,6 +80,12 @@ class LoginPopup extends React.Component {
 
     render() {
         const loggedIn = this.state.loggedIn
+        // ? <div>
+        //     <p>You are signed in with: {this.state.loggedIn}</p>
+        //   </div>
+        // : <div>
+        //     <p>You are signed out</p>
+        // </div>;
 
         const isLoading = this.state.loading;
 
@@ -146,10 +100,9 @@ class LoginPopup extends React.Component {
                     error={this.state.error}
                     startLoading={this.startLoading.bind(this)}
                     finishLoading={this.finishLoading.bind(this)}
-
                     form={{
                         onLogin: this.onLogin.bind(this),
-                        //onClick: this.myaxios(),
+
                         loginBtn: {
                             label: "Sign in"
                         },
@@ -176,16 +129,10 @@ class LoginPopup extends React.Component {
                         ],
                     }}
                 />
-
                 {loggedIn}
-
             </div>
         )
     }
-
-
-
-
 };
 
 export default LoginPopup;

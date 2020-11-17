@@ -51,7 +51,7 @@ export const ContactPage = () => {
 
     useEffect(() => {
 
-        Axios.get('/api/Event')
+        axios.get('/api/Event')
             .then((r) => {
                 setGetThing((table) => {
                     const callData = { ...table };

@@ -1,12 +1,14 @@
 import React from 'react';
 import '../Footer.css';
-import LoginPopup from './Login-popup'
+//import LoginPopup from './Login-popup'
+import { NewLoginPopup } from './new-login-popup';
 
 function Footer() {
     return (
         <div className="Footer">
             <footer>
-                <LoginPopup />
+                {/*<LoginPopup />*/}
+                <NewLoginPopup />
             </footer>
         </div>
     )
