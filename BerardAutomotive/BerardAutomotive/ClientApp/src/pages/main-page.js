@@ -9,37 +9,37 @@ class MainPage extends Component {
     render() {
         return (
             <React.Fragment>
-                    <Carousel>
-                        <Carousel.Item>
-                            <img
-                                className="d-blockw-100"
-                                src={auto1}
-                                alt="First slide"
-                            />
-                            {/* <Carousel.Caption>
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-blockw-100"
+                            src={auto1}
+                            alt="First slide"
+                        />
+                        {/* <Carousel.Caption>
                             <h3>First slide label</h3>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption> */}
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-blockw-100"
-                                src={auto2}
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-blockw-100"
-                                src={auto3}
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-blockw-100"
+                            src={auto2}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-blockw-100"
+                            src={auto3}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                </Carousel>
 
                 <div className="HomeInfo">
                     <h3 style={{ "textAlign": "center", "display": "inline-block", "marginRight": "50px" }}>What We Provide </h3>
-                    <h3 style={{ "textAlign": "center", "display": "inline-block", "marginLeft": "50px", 'marginRight':'0px' }}> Our Services </h3>
+                    <h3 style={{ "textAlign": "center", "display": "inline-block", "marginLeft": "50px", 'marginRight': '0px' }}> Our Services </h3>
 
                     <div style={{ "textAlign": "center" }}>
                         <ul style={{ "textAlign": "left", "display": "inline-block", "listStyleType": "none" }}>
@@ -61,7 +61,7 @@ class MainPage extends Component {
                     contact page and fill out the form. <br /> A team member will return your message as
                     soon as possible.</b></p>
                 </div >
-                
+
             </React.Fragment>
         )
     }

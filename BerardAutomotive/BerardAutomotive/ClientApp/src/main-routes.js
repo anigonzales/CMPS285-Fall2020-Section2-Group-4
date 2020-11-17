@@ -4,10 +4,10 @@ import 'react-tabs/style/react-tabs.css';
 import './Header.css'
 import './Footer.css'
 import './App.css';
-import { ServicesPage } from './pages/services-page';
+import ServicesPage from './pages/services-page';
 import { ContactPage } from './pages/contact-page';
-import { AboutPage } from './pages/about-page';
-import { MainPage } from './pages/main-page';
+import AboutPage from './pages/about-page';
+import MainPage from './pages/main-page';
 import 'semantic-ui-css/semantic.min.css'
 import TabsNav from './components/TabsNavigation/tabs-nav';
 import 'react-tabs/style/react-tabs.css';
